@@ -154,6 +154,37 @@ open class CircleMenu: UIButton {
         commonInit()
     }
 
+    /**
+     Initializes and returns a circle menu object.
+
+     - parameter frame:        A rectangle specifying the initial location and size of the circle menu in its superview’s coordinates.
+     - parameter normalImage:   The image to use for the specified normal state.
+     - parameter selectedImage: The image to use for the specified selected state.
+     - parameter buttonsCount: The number of buttons.
+     - parameter duration:     The duration, in seconds, of the animation.
+     - parameter distance:     Distance between center button and sub buttons.
+
+     - returns: A newly created circle menu.
+     */
+    public init(frame: CGRect,
+                normalImage: UIImage?,
+                selectedImage: UIImage?,
+                buttonsCount: Int = 3,
+                duration: Double = 2,
+                distance: Float = 100) {
+        super.init(frame: frame)
+        
+        setImage(normalImage, for: .normal)
+        
+        setImage(selectedImage, for: .selected)
+        
+        self.buttonsCount = buttonsCount
+        self.duration = duration
+        self.distance = distance
+        
+        commonInit()
+    }
+    
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 
